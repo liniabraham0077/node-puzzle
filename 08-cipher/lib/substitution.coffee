@@ -4,10 +4,14 @@ alphabet1 = 'abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
 
 exports.encrypt = (string) ->
-  #
-  # !!! Place your solition here !!!
-  #
-  return 'fix me'
+  result = ''
+  for char in string
+    index = alphabet1.indexOf char
+    if index is -1
+      result += char
+    else
+      result += alphabet0[index]
+        return result
 
 
 exports.decrypt = (string) ->
@@ -18,5 +22,4 @@ exports.decrypt = (string) ->
       result += char
     else
       result += alphabet1[index]
-
-  return result
+     return result
