@@ -17,8 +17,6 @@ exports.validate = (data) ->
   
   if !validator.isIn(["cycling"],data.interests) && !validator.isIn(["programming"],data.interests) then return false
    
-  console.log("Hii");
-  
-  console.log("validate value " + exports.validate);
+   console.log("validate value " + exports.validate);
   
   return true
