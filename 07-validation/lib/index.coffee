@@ -7,11 +7,11 @@ exports.validate = (data) ->
   # Very naive checks - change them!
   if data.id < 0 then return false 
   
-  if data.name isnt 'John Doe' then return false 
+  if !validator.regex(/[a-z][A-Z][\S]/i) data.name then return false 
 
   if !validator.isEmail() data.email then return false
   
-  if !validator.isFloat() data.taxRate then return false
+  if !validator.isFloat().min(0).max(1) data.taxRate then return false
   
   if !validator.isHexColor() data.favouriteColour then return false
   
