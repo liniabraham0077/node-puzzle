@@ -1,13 +1,12 @@
 assert   = require 'assert'
 {validate} = require '../lib'
 
-
 describe '07-validation', ->
 
   it 'should return `true` for valid data', ->
     assert validate
       id: 1
-      name: 'John Doe'
+      name: 'ghj'
       email: 'foo@bar.com'
       taxRate: 0.1
       favouriteColour: '#ccccff'
@@ -49,6 +48,13 @@ describe '07-validation', ->
       favouriteColour: '#ccccffx' # <--- problem
       interests: ["cycling", "programming"]
 
-  # !!!!!
-  # Add more tests for different data that users might try to provide!
-  # !!!!!
+  it 'should return `false` for invalid data: taxRate', ->
+    assert !validate
+      id: 1
+      name: 'John Doe'
+      email: 'foo@bar.com'
+      taxRate: -0.1   # <--- problem
+      favouriteColour: '#ccccff' 
+      interests: ["cycling", "programming"]
+	  
+	 
